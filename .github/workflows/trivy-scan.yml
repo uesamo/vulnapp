@@ -21,15 +21,15 @@ jobs:
         uses: actions/checkout@v4
 
       # Dockerイメージのビルド
-      - name: Build Docker Image
-        run: |
-          docker build -t vulnerable-app .
+      #- name: Build Docker Image
+      #  run: |
+      #    docker build -t vulnerable-app .
 
       # Trivy を使ってコンテナのスキャン
       - name: Run Trivy scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'vulnerable-app'
+          image-ref: 'ghcr.io/uesamo/awesometodo:latest'
           format: 'table'
           exit-code: '0'
           ignore-unfixed: true
